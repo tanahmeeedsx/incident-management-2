@@ -1,52 +1,93 @@
-# bongoDev Incident Management
+<h1 align="center">Incident Management</h1>
+
+<p align="center">
+  A full-stack incident management application deployed on AWS EC2 using Ubuntu, Nginx, React, Node.js, Express, and PostgreSQL.
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-EC2-orange?logo=amazonaws" alt="AWS EC2" />
   <img src="https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white" alt="Ubuntu 24.04" />
   <img src="https://img.shields.io/badge/Node.js-24-339933?logo=nodedotjs&logoColor=white" alt="Node.js 24" />
-  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black" alt="React 18" />
   <img src="https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL 16" />
   <img src="https://img.shields.io/badge/Nginx-Reverse%20Proxy-009639?logo=nginx&logoColor=white" alt="Nginx" />
 </p>
 
 <p align="center">
-  A full-stack incident management application deployed on AWS EC2 with Ubuntu, Nginx, Node.js, Express, and PostgreSQL — without Docker.
+  <a href="#overview">Overview</a> •
+  <a href="#screenshots">Screenshots</a> •
+  <a href="#features">Features</a> •
+  <a href="#architecture">Architecture</a> •
+  <a href="#deployment">Deployment</a>
 </p>
 
 ---
 
-## Project Overview
+## Overview
 
-**bongoDev Incident Management** is a hands-on deployment project that demonstrates how to run a React and Express application on an Ubuntu Server 24.04 LTS EC2 instance.
+Incident Management is a hands-on cloud deployment project built to demonstrate how a full-stack application can be deployed and operated on an Ubuntu EC2 instance without using Docker.
 
-The React frontend is built with Vite and served by Nginx. Nginx also acts as a reverse proxy for the Express REST API. The backend runs as a systemd service and stores incident records in PostgreSQL.
+The application provides a simple interface for creating and managing incident records. The React frontend is served by Nginx, while an Express REST API handles application requests and stores data in PostgreSQL. The backend runs as a systemd service to keep the application process managed by the server.
 
-The main deployment was completed manually using Bash scripts. An optional GitHub Actions workflow is included to demonstrate how build checks and deployment to an existing EC2 instance can be automated.
+The deployment was completed manually with reusable Bash scripts. An optional GitHub Actions workflow is also included to demonstrate a basic CI/CD approach for an already configured EC2 instance.
+
+## Screenshots
+
+<p align="center"><strong>EC2 Instance</strong></p>
+<p align="center">
+  <img src="incident-management-submission/01-ec2-running.png" alt="AWS EC2 instance running" width="90%" />
+</p>
+
+<p align="center"><strong>Installed Server Technologies</strong></p>
+<p align="center">
+  <img src="incident-management-submission/02-installed-technologies.png" alt="Installed server technologies" width="90%" />
+</p>
+
+<p align="center"><strong>Backend Health Check</strong></p>
+<p align="center">
+  <img src="incident-management-submission/03-backend-health.png" alt="Backend health check" width="90%" />
+</p>
+
+<p align="center"><strong>Live Incident Management Application</strong></p>
+<p align="center">
+  <img src="incident-management-submission/04-live-application.png" alt="Live application" width="90%" />
+</p>
+
+<p align="center"><strong>Incident Creation and Data Persistence</strong></p>
+<p align="center">
+  <img src="incident-management-submission/05-incident-persistence.png" alt="Incident persistence" width="90%" />
+</p>
+
+<p align="center"><strong>PostgreSQL Records</strong></p>
+<p align="center">
+  <img src="incident-management-submission/06-postgresql-records.png" alt="PostgreSQL records" width="90%" />
+</p>
+
+---
 
 ## Features
 
 - Create and manage incident records.
 - Update incident statuses.
-- Store incident data in PostgreSQL.
-- Preserve incident records across application redeployments.
+- Persist incident data in PostgreSQL.
 - Serve the React frontend through Nginx.
 - Route API requests through an Nginx reverse proxy.
-- Manage the backend process with systemd.
-- Automate server setup, database configuration, deployment, and checks with Bash scripts.
-- Include an optional GitHub Actions CI/CD workflow.
+- Run the backend as a systemd-managed service.
+- Automate server setup and deployment with Bash scripts.
+- Include an optional GitHub Actions workflow.
 
 ## Technology Stack
 
-| Category | Technologies |
+| Layer | Technology |
 |---|---|
-| Cloud | AWS EC2 |
+| Cloud Infrastructure | AWS EC2 |
 | Operating System | Ubuntu Server 24.04 LTS |
-| Frontend | React, Vite |
+| Frontend | React 18, Vite |
 | Backend | Node.js 24, Express.js |
 | Database | PostgreSQL 16 |
-| Web Server / Reverse Proxy | Nginx |
+| Web Server | Nginx |
 | Process Management | systemd |
-| Scripting | Bash |
+| Automation | Bash |
 | CI/CD | GitHub Actions |
 
 ## Architecture
@@ -62,72 +103,24 @@ flowchart TD
 
 ### Request Flow
 
-1. The browser sends a request to the EC2 instance through HTTP.
+1. A user accesses the application through the EC2 public IP.
 2. Nginx serves the built React frontend.
-3. Requests to `/api/*` and `/health` are proxied to the Express backend on `127.0.0.1:5000`.
-4. The backend communicates with PostgreSQL on `127.0.0.1:5432`.
+3. API and health requests are forwarded to the Express backend at `127.0.0.1:5000`.
+4. The backend reads and writes incident records in PostgreSQL at `127.0.0.1:5432`.
 5. systemd manages the backend service.
 
-## Repository Structure
-
-```text
-incident-management-2/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml
-├── backend/
-│   ├── src/
-│   │   ├── db.js
-│   │   └── server.js
-│   ├── .env.example
-│   ├── package.json
-│   └── package-lock.json
-├── deploy/
-│   └── nginx-incident-management.conf
-├── docs/
-│   └── GITHUB_ACTIONS.md
-├── frontend/
-│   ├── src/
-│   │   ├── main.jsx
-│   │   └── styles.css
-│   ├── index.html
-│   ├── package.json
-│   ├── package-lock.json
-│   └── vite.config.js
-├── incident-management-submission/
-│   ├── 01-ec2-running.png
-│   ├── 02-installed-technologies.png
-│   ├── 03-backend-health.png
-│   ├── 04-live-application.png
-│   ├── 05-incident-persistence.png
-│   └── 06-postgresql-records.png
-├── scripts/
-│   ├── check-services.sh
-│   ├── deploy-ubuntu.sh
-│   ├── install-dependencies.sh
-│   ├── install-nginx-ubuntu.sh
-│   ├── install-nodejs-ubuntu.sh
-│   ├── install-postgresql-ubuntu.sh
-│   ├── install-ubuntu.sh
-│   ├── setup-database.sh
-│   └── verify.sh
-├── .gitignore
-├── .nvmrc
-└── README.md
-```
-
-## Deployment on AWS EC2
+## Deployment
 
 ### 1. Launch an EC2 Instance
 
-Launch an EC2 instance using **Ubuntu Server 24.04 LTS**.
+Launch an instance with **Ubuntu Server 24.04 LTS**.
 
-Configure the security group to:
+Configure the security group:
 - Allow HTTP traffic on port `80`.
-- Allow SSH on port `22` only from your trusted IP address.
-- Keep backend port `5000` and PostgreSQL port `5432` private.
+- Allow SSH on port `22` from your trusted IP address.
+- Do not expose backend port `5000` or PostgreSQL port `5432` publicly.
 
-### 2. Connect to the Instance
+### 2. Connect to EC2
 
 ```bash
 ssh -i your-key.pem ubuntu@YOUR_EC2_PUBLIC_IP
@@ -140,20 +133,20 @@ git clone https://github.com/tanahmeeedsx/incident-management-2.git
 cd incident-management-2
 ```
 
-### 4. Install Server Dependencies
+### 4. Install Dependencies
 
 ```bash
 chmod +x scripts/*.sh
 bash scripts/install-ubuntu.sh
 ```
 
-### 5. Configure PostgreSQL
+### 5. Configure the Database
 
 ```bash
 bash scripts/setup-database.sh
 ```
 
-The setup script prepares the application database and backend environment configuration. The generated `backend/.env` file contains private database credentials and must remain untracked.
+This script prepares the PostgreSQL database and backend environment configuration. Keep the generated `backend/.env` file private and out of Git.
 
 ### 6. Deploy the Application
 
@@ -163,125 +156,80 @@ bash scripts/deploy-ubuntu.sh
 
 The deployment script installs application dependencies, builds the frontend, configures the backend systemd service, installs the Nginx configuration, and checks application health.
 
-### 7. Check Services
+### 7. Verify the Deployment
 
 ```bash
 bash scripts/check-services.sh
+curl http://127.0.0.1/health
 ```
 
-Open the application in your browser:
+Then open the following address in a browser:
 
 ```text
 http://YOUR_EC2_PUBLIC_IP
 ```
 
-## Verification
-
-Check the backend service:
-
-```bash
-sudo systemctl status incident-backend
-```
-
-Check the health endpoint through Nginx:
-
-```bash
-curl http://127.0.0.1/health
-```
-
-A healthy response should report that the service is healthy and the database is connected:
-
-```json
-{
-  "service": "incident-backend",
-  "status": "healthy",
-  "database": "connected"
-}
-```
-
-Check the incidents API:
-
-```bash
-curl http://127.0.0.1/api/incidents
-```
-
-Create an incident, update its status, and refresh the application to verify that the records persist.
+A healthy backend response should indicate that the service is running and the database is connected.
 
 ## Manual Redeployment
 
-This project also demonstrates updating the application without recreating the database.
+The application can be updated without recreating the database.
 
-1. Make a frontend change, such as updating the heading in `frontend/src/main.jsx`.
+1. Make the required application changes.
 2. Run the deployment script again:
 
    ```bash
    bash scripts/deploy-ubuntu.sh
    ```
 
-3. Refresh the application and verify the updated interface.
-4. Confirm that existing incident records remain available.
+3. Refresh the application and verify the changes.
+4. Confirm that existing incident records are still available.
 
 The submitted deployment includes the manually updated heading **Incident Command Center — Updated Manually**.
 
-## Deployment Screenshots
+## Repository Structure
 
-### 1. EC2 Instance Running
-
-![EC2 instance running](incident-management-submission/01-ec2-running.png)
-
-### 2. Installed Technologies
-
-![Installed technologies](incident-management-submission/02-installed-technologies.png)
-
-### 3. Backend Health Check
-
-![Backend health check](incident-management-submission/03-backend-health.png)
-
-### 4. Live Application
-
-![Live application](incident-management-submission/04-live-application.png)
-
-### 5. Incident Creation and Persistence
-
-![Incident persistence](incident-management-submission/05-incident-persistence.png)
-
-### 6. PostgreSQL Records
-
-![PostgreSQL records](incident-management-submission/06-postgresql-records.png)
+```text
+incident-management-2/
+├── .github/workflows/       # Optional GitHub Actions workflow
+├── backend/                 # Express API and database connection
+├── deploy/                  # Nginx configuration
+├── docs/                    # CI/CD documentation
+├── frontend/                # React application
+├── incident-management-submission/  # Deployment screenshots
+├── scripts/                 # Installation, setup, deploy, and checks
+├── .gitignore
+├── .nvmrc
+└── README.md
+```
 
 ## Challenges and Solutions
 
 | Challenge | Solution |
 |---|---|
-| Preparing the Ubuntu server | Used Bash scripts to install and configure the required packages. |
-| Keeping database credentials private | Stored credentials in `backend/.env` and excluded the file from Git. |
-| Serving the frontend and API together | Configured Nginx to serve static frontend files and proxy API requests. |
-| Keeping the backend process running | Configured the Express backend as a systemd service. |
-| Preserving incident data | Used PostgreSQL for persistent storage. |
-| Repeating deployment steps consistently | Created a deployment script to build and configure the application. |
+| Preparing the Ubuntu server | Automated package installation and setup with Bash scripts. |
+| Serving frontend and API together | Configured Nginx to serve static files and proxy API requests. |
+| Keeping the backend available | Managed the Express process with systemd. |
+| Protecting database credentials | Stored credentials in an untracked `backend/.env` file. |
+| Preserving incident records | Used PostgreSQL for persistent storage. |
+| Repeating deployment steps | Created reusable installation and deployment scripts. |
 
-## Optional CI/CD with GitHub Actions
+## Optional CI/CD
 
-The repository includes `.github/workflows/deploy.yml` for an optional CI/CD workflow.
+The repository includes `.github/workflows/deploy.yml` as an optional GitHub Actions workflow. It is designed to run validation/build steps and deploy to an already configured EC2 instance when the required repository variables and secrets are provided.
 
-The workflow is designed to:
-
-- Run backend validation checks.
-- Install frontend dependencies and build the React application.
-- Deploy to an already configured Ubuntu EC2 instance when the required repository variables and secrets are provided.
-
-The workflow does not create or provision EC2 infrastructure. The main application deployment demonstrated in this project was performed manually.
+The workflow does not provision EC2 infrastructure. The deployment shown in the screenshots was performed manually.
 
 See [GitHub Actions Documentation](docs/GITHUB_ACTIONS.md) for configuration details.
 
 ## Security Notes
 
 - Restrict SSH access to trusted IP addresses.
-- Expose application traffic through Nginx on port `80`.
-- Do not expose PostgreSQL port `5432` or backend port `5000` publicly.
-- Never commit `backend/.env`, database passwords, or SSH private keys.
+- Expose application traffic through Nginx.
+- Keep PostgreSQL and backend ports private.
+- Never commit environment files, passwords, or SSH private keys.
 - Use GitHub Secrets for sensitive CI/CD configuration.
-- This educational demo does not include authentication and uses HTTP. Do not use it for sensitive incident data.
+- This educational demo does not include authentication and uses HTTP; do not use it for sensitive incident data.
 
 ## Future Improvements
 
@@ -294,20 +242,19 @@ See [GitHub Actions Documentation](docs/GITHUB_ACTIONS.md) for configuration det
 
 ## What I Learned
 
-- Launching and configuring an Ubuntu EC2 instance.
-- Installing and managing Node.js, PostgreSQL, and Nginx.
-- Deploying a React and Express application without containers.
+- Deploying a full-stack application on AWS EC2.
+- Managing Ubuntu, Node.js, PostgreSQL, and Nginx.
 - Configuring Nginx as a reverse proxy.
-- Managing backend processes with systemd.
+- Managing application processes with systemd.
 - Handling environment variables and persistent database records.
-- Automating server setup and deployment tasks with Bash.
-- Understanding how GitHub Actions can support CI/CD.
+- Automating deployment tasks with Bash.
+- Understanding a basic GitHub Actions deployment workflow.
 
 ## Author
 
 **Tanjim Ahmed (Tomal)**
 
-- GitHub: [@tanahmeeedsx](https://github.com/tanahmeeedsx)
+[GitHub Profile](https://github.com/tanahmeeedsx)
 
 ---
 
