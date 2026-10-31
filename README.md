@@ -15,8 +15,9 @@
 
 <p align="center">
   <a href="#overview">Overview</a> •
-  <a href="#screenshots">Screenshots</a> •
   <a href="#features">Features</a> •
+  <a href="#technology-stack">Technology Stack</a> •
+  <a href="#screenshots">Screenshots</a> •
   <a href="#architecture">Architecture</a> •
   <a href="#deployment">Deployment</a>
 </p>
@@ -31,40 +32,6 @@ The application provides a simple interface for creating and managing incident r
 
 The deployment was completed manually with reusable Bash scripts. An optional GitHub Actions workflow is also included to demonstrate a basic CI/CD approach for an already configured EC2 instance.
 
-## Screenshots
-
-<p align="center"><strong>EC2 Instance</strong></p>
-<p align="center">
-  <img src="incident-management-submission/01-ec2-running.png" alt="AWS EC2 instance running" width="90%" />
-</p>
-
-<p align="center"><strong>Installed Server Technologies</strong></p>
-<p align="center">
-  <img src="incident-management-submission/02-installed-technologies.png" alt="Installed server technologies" width="90%" />
-</p>
-
-<p align="center"><strong>Backend Health Check</strong></p>
-<p align="center">
-  <img src="incident-management-submission/03-backend-health.png" alt="Backend health check" width="90%" />
-</p>
-
-<p align="center"><strong>Live Incident Management Application</strong></p>
-<p align="center">
-  <img src="incident-management-submission/04-live-application.png" alt="Live application" width="90%" />
-</p>
-
-<p align="center"><strong>Incident Creation and Data Persistence</strong></p>
-<p align="center">
-  <img src="incident-management-submission/05-incident-persistence.png" alt="Incident persistence" width="90%" />
-</p>
-
-<p align="center"><strong>PostgreSQL Records</strong></p>
-<p align="center">
-  <img src="incident-management-submission/06-postgresql-records.png" alt="PostgreSQL records" width="90%" />
-</p>
-
----
-
 ## Features
 
 - Create and manage incident records.
@@ -78,6 +45,11 @@ The deployment was completed manually with reusable Bash scripts. An optional Gi
 
 ## Technology Stack
 
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=aws,ubuntu,nodejs,react,express,postgres,nginx,bash,githubactions&perline=5" alt="AWS, Ubuntu, Node.js, React, Express, PostgreSQL, Nginx, Bash, and GitHub Actions" />
+</p>
+
+
 | Layer | Technology |
 |---|---|
 | Cloud Infrastructure | AWS EC2 |
@@ -89,6 +61,40 @@ The deployment was completed manually with reusable Bash scripts. An optional Gi
 | Process Management | systemd |
 | Automation | Bash |
 | CI/CD | GitHub Actions |
+
+## Screenshots
+
+<p align="center"><strong>EC2 Instance Running & Initial Incident</strong></p>
+<p align="center">
+  <img src="incident-management-submission/01-ec2-running.png" alt="AWS EC2 instance running" width="90%" />
+</p>
+
+<p align="center"><strong>Installed Server Technologies</strong></p>
+<p align="center">
+  <img src="incident-management-submission/02-installed-technologies.png" alt="Installed server technologies" width="90%" />
+</p>
+
+<p align="center"><strong>Updated Incident Command Center</strong></p>
+<p align="center">
+  <img src="incident-management-submission/03-backend-health.png" alt="Backend health check" width="90%" />
+</p>
+
+<p align="center"><strong>Live Application & API Health Check</strong></p>
+<p align="center">
+  <img src="incident-management-submission/04-live-application.png" alt="Live application" width="90%" />
+</p>
+
+<p align="center"><strong>Manual Update & Incident Persistence</strong></p>
+<p align="center">
+  <img src="incident-management-submission/05-incident-persistence.png" alt="Incident persistence" width="90%" />
+</p>
+
+<p align="center"><strong>PostgreSQL Incident Records</strong></p>
+<p align="center">
+  <img src="incident-management-submission/06-postgresql-records.png" alt="PostgreSQL records" width="90%" />
+</p>
+
+---
 
 ## Architecture
 
