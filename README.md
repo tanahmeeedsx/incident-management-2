@@ -45,17 +45,19 @@ The deployment was completed manually with reusable Bash scripts. An optional Gi
 
 ## Technology Stack
 
-| Layer | Logo | Technology |
-|---|:---:|---|
-| Cloud Infrastructure | <img src="https://skillicons.dev/icons?i=aws" width="32" alt="AWS" /> | AWS EC2 |
-| Operating System | <img src="https://skillicons.dev/icons?i=ubuntu" width="32" alt="Ubuntu" /> | Ubuntu Server 24.04 LTS |
-| Frontend | <img src="https://skillicons.dev/icons?i=react" width="32" alt="React" /> | React 18, Vite |
-| Backend | <img src="https://skillicons.dev/icons?i=nodejs,express" width="64" alt="Node.js and Express" /> | Node.js 24, Express.js |
-| Database | <img src="https://skillicons.dev/icons?i=postgres" width="32" alt="PostgreSQL" /> | PostgreSQL 16 |
-| Web Server | <img src="https://skillicons.dev/icons?i=nginx" width="32" alt="Nginx" /> | Nginx |
-| Process Management | <img src="https://skillicons.dev/icons?i=linux" width="32" alt="Linux" /> | systemd |
-| Automation | <img src="https://skillicons.dev/icons?i=bash" width="32" alt="Bash" /> | Bash |
-| CI/CD | <img src="https://skillicons.dev/icons?i=githubactions" width="32" alt="GitHub Actions" /> | GitHub Actions |
+The project combines cloud infrastructure, application services, database storage, and deployment automation.
+
+| Layer | Technology |
+|---|---|
+| Cloud Infrastructure | <img src="https://skillicons.dev/icons?i=aws" width="24" align="center" alt="AWS" /> AWS EC2 |
+| Operating System | <img src="https://skillicons.dev/icons?i=ubuntu" width="24" align="center" alt="Ubuntu" /> Ubuntu Server 24.04 LTS |
+| Frontend | <img src="https://skillicons.dev/icons?i=react" width="24" align="center" alt="React" /> React 18, Vite |
+| Backend | <img src="https://skillicons.dev/icons?i=nodejs" width="24" align="center" alt="Node.js" /> <img src="https://skillicons.dev/icons?i=express" width="24" align="center" alt="Express" /> Node.js 24, Express.js |
+| Database | <img src="https://skillicons.dev/icons?i=postgres" width="24" align="center" alt="PostgreSQL" /> PostgreSQL 16 |
+| Web Server | <img src="https://skillicons.dev/icons?i=nginx" width="24" align="center" alt="Nginx" /> Nginx |
+| Process Management | <img src="https://skillicons.dev/icons?i=linux" width="24" align="center" alt="Linux" /> systemd |
+| Automation | <img src="https://skillicons.dev/icons?i=bash" width="24" align="center" alt="Bash" /> Bash |
+| CI/CD | <img src="https://skillicons.dev/icons?i=githubactions" width="24" align="center" alt="GitHub Actions" /> GitHub Actions |
 
 ## Screenshots
 
