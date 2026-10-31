@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="incident-management-submission/04-live-application.png" alt="Incident Management application interface preview" width="96%" />
+</p>
+
 <h1 align="center">Incident Management</h1>
 
 <p align="center">
@@ -15,8 +19,9 @@
 
 <p align="center">
   <a href="#overview">Overview</a> •
-  <a href="#screenshots">Screenshots</a> •
   <a href="#features">Features</a> •
+  <a href="#technology-stack">Tech Stack</a> •
+  <a href="#screenshots">Screenshots</a> •
   <a href="#architecture">Architecture</a> •
   <a href="#deployment">Deployment</a>
 </p>
@@ -30,6 +35,32 @@ Incident Management is a hands-on cloud deployment project built to demonstrate 
 The application provides a simple interface for creating and managing incident records. The React frontend is served by Nginx, while an Express REST API handles application requests and stores data in PostgreSQL. The backend runs as a systemd service to keep the application process managed by the server.
 
 The deployment was completed manually with reusable Bash scripts. An optional GitHub Actions workflow is also included to demonstrate a basic CI/CD approach for an already configured EC2 instance.
+
+## Features
+
+- Create and manage incident records.
+- Update incident statuses.
+- Persist incident data in PostgreSQL.
+- Serve the React frontend through Nginx.
+- Route API requests through an Nginx reverse proxy.
+- Run the backend as a systemd-managed service.
+- Automate server setup and deployment with Bash scripts.
+- Include an optional GitHub Actions workflow.
+
+## Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Cloud Infrastructure | AWS EC2 |
+| Operating System | Ubuntu Server 24.04 LTS |
+| Frontend | React 18, Vite |
+| Backend | Node.js 24, Express.js |
+| Database | PostgreSQL 16 |
+| Web Server | Nginx |
+| Process Management | systemd |
+| Automation | Bash |
+| CI/CD | GitHub Actions |
+
 
 ## Screenshots
 
@@ -65,30 +96,6 @@ The deployment was completed manually with reusable Bash scripts. An optional Gi
 
 ---
 
-## Features
-
-- Create and manage incident records.
-- Update incident statuses.
-- Persist incident data in PostgreSQL.
-- Serve the React frontend through Nginx.
-- Route API requests through an Nginx reverse proxy.
-- Run the backend as a systemd-managed service.
-- Automate server setup and deployment with Bash scripts.
-- Include an optional GitHub Actions workflow.
-
-## Technology Stack
-
-| Layer | Technology |
-|---|---|
-| Cloud Infrastructure | AWS EC2 |
-| Operating System | Ubuntu Server 24.04 LTS |
-| Frontend | React 18, Vite |
-| Backend | Node.js 24, Express.js |
-| Database | PostgreSQL 16 |
-| Web Server | Nginx |
-| Process Management | systemd |
-| Automation | Bash |
-| CI/CD | GitHub Actions |
 
 ## Architecture
 
