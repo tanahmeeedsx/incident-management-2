@@ -45,22 +45,17 @@ The deployment was completed manually with reusable Bash scripts. An optional Gi
 
 ## Technology Stack
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=aws,ubuntu,nodejs,react,express,postgres,nginx,bash,githubactions&perline=5" alt="AWS, Ubuntu, Node.js, React, Express, PostgreSQL, Nginx, Bash, and GitHub Actions" />
-</p>
-
-
-| Layer | Technology |
-|---|---|
-| Cloud Infrastructure | AWS EC2 |
-| Operating System | Ubuntu Server 24.04 LTS |
-| Frontend | React 18, Vite |
-| Backend | Node.js 24, Express.js |
-| Database | PostgreSQL 16 |
-| Web Server | Nginx |
-| Process Management | systemd |
-| Automation | Bash |
-| CI/CD | GitHub Actions |
+| Layer | Logo | Technology |
+|---|:---:|---|
+| Cloud Infrastructure | <img src="https://skillicons.dev/icons?i=aws" width="32" alt="AWS" /> | AWS EC2 |
+| Operating System | <img src="https://skillicons.dev/icons?i=ubuntu" width="32" alt="Ubuntu" /> | Ubuntu Server 24.04 LTS |
+| Frontend | <img src="https://skillicons.dev/icons?i=react" width="32" alt="React" /> | React 18, Vite |
+| Backend | <img src="https://skillicons.dev/icons?i=nodejs,express" width="64" alt="Node.js and Express" /> | Node.js 24, Express.js |
+| Database | <img src="https://skillicons.dev/icons?i=postgres" width="32" alt="PostgreSQL" /> | PostgreSQL 16 |
+| Web Server | <img src="https://skillicons.dev/icons?i=nginx" width="32" alt="Nginx" /> | Nginx |
+| Process Management | <img src="https://skillicons.dev/icons?i=linux" width="32" alt="Linux" /> | systemd |
+| Automation | <img src="https://skillicons.dev/icons?i=bash" width="32" alt="Bash" /> | Bash |
+| CI/CD | <img src="https://skillicons.dev/icons?i=githubactions" width="32" alt="GitHub Actions" /> | GitHub Actions |
 
 ## Screenshots
 
